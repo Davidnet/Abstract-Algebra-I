@@ -1,1 +1,103 @@
 \section{Introduction}
+We begin with section 0.3, let us consider the following quotient group, let $n$ be a fixed integer $ \frac{\mathbb{Z}}{n \mathbb{Z}} $ which is described better as:
+\begin{itemize}
+	\item $ a ~ \iff n | (a-b) $ in better notation $ a \equiv b \mod{n} $
+\end{itemize} 
+\[ \zn = \set{ \bar{0}... \bar{n-1} } \]
+Prove:
+
+\[ \bar{a} + \bar{b}= \bar{a + b} \quad \bar{a}\bar{b} = \bar{ab} \]
+Check that this is well defined. The strategy is to use that if  $ \bar{a} = \bar{a} $ and $ \bar{b} = \bar{b'} $ and it should imply that $ \bar{ab} = \bar{a'b' }$
+
+\begin{example}
+	\begin{align*}
+	\bar{2}x = \bar{1} \mod{ 6} \\
+	\bar{2}x = \bar{1} \mod{5}
+	\end{align*}
+\end{example}
+Observe that we can use a force-brute approach to solve each equation, and we see that the first one is not solvable, meanwhile the second is by $ \bar{3} $. 
+we now denote
+\[ \left( \zn \right)^x = \set{ \textrm{ Elements with a multiplicative inverse}} \]
+for example
+\[  \bar{2} \in (\zn)^x \textrm{for n = 5} \]
+
+\begin{thm}
+	The above group is given by $ \set{\bar{a} \in (\zn)^x : (a,n) = 1}$
+\end{thm}
+\begin{proof}
+	Observe $ (a,b) = \textrm{min} \set{ax + by > 0 : x,y \in \mathbb{Z}} $
+	if we supoose $ (a,n) = 1 \implies \exists x,y\in Z $
+\end{proof}
+\begin{example}
+	Compute the remainder of $ 37^{1000} $ in division by 29.
+	Let us observe then $ | \zn^x | = \phi(n) $, and the properties of $ \phi $ to calculate we use the prime decomposition.
+	to solve the above problem we use Fermat little theorem.
+	\[ a^{p-1} \equiv 1 \mod{p} \].
+\end{example}
+\section{Basic Axioms}
+\begin{define}
+	A binary \textbf{opertion} $ * $ on a set $G$ is a function:
+	\[ *: G \times G\rightarrow G \], $*(a,b) = a * b $ which if it  has the following properties:
+	\begin{itemize}
+		\item $*$ is associative, i.e
+		\item $*$ is Abelian or commutative, i.e
+	\end{itemize}
+\end{define}
+
+\begin{example}
+	Observe that the following sets are group $(R,+) $, $(R, \cdot) $. The dot product fails since it is not an operation.
+\end{example}
+\begin{define}
+	A group is an ordered pair $(G,*)$ set with a binary operation such that the following properties hold:
+	\begin{itemize}
+		\item $*$ is associative
+		\item $ \exists e \in G \forall g \in G g *e = g = e*g $
+		\item $ \forall a \in G \exists b \in G \textrm{ s.t } a*b = b*a = e $
+	\end{itemize}
+	G is abelian if $*$ is abelian.
+\end{define}
+\begin{example}
+	$ (\RR,+), (\CC^x, \cdot), $ $(M_{\RR}(2,2), \cdot)$is not associative, $, GL_{n}(\RR), $, $(\zn, +) $
+\end{example}
+So it is clear that it depends on the ground set and the operation.
+\begin{example}
+	If $ (A, *) $ and $ (B, \diamond) $ are groups thenn $ A \times B$ has a natural group structure. Note: Prove that the operations hold the properties.
+\end{example}
+\begin{thm}
+	If $G$ is a group under $*$, then:
+	\begin{itemize}
+		\item the identity is unique
+		\item $ a^{-1} $ is unique for every $a$
+		\item $ (a^{-1})^{-1} = a $ \\
+		\item $( a * b)^{-1} = a^{-1} * b^{-1} $ \\
+		\item for any $a_1, a_2, \ldots , a_n  \in G$, $ a_1 * \ldots a_n$ is well-defined
+	\end{itemize}
+\end{thm}
+
+\begin{proof}
+	Assume we have $e$ and $ e'$ as identity, so that $ e' * e = e'$ and because $e'$ is an identity $e' = e' * e = e $.
+	Note: Write number 2. Let $b, b'$ be inverses of $a$, $ b = be =b(ab') $, then by associativity $ (ba)b'= e b' = b' $.
+	Note: For five use induction 
+\end{proof}
+
+Remark: Mathematics on a different planet
+
+\begin{prop}
+	Let $G$ be a group and $a,b \in G $. The equations $ax = b$ and $ ya = b$ has unique solutions.
+\end{prop}
+\begin{proof}
+	Prove it! you will need left and right cancellation.
+\end{proof}
+\begin{example}
+	\textbf{No cancelation } $ \bar{2} \bar{3} = \bar{0} \mod{6} $, observe that $ \frac{Z}{6Z} $is not a group 
+\end{example}
+
+\begin{define}
+	The order of $ x \in G$ is the least positive integer $n$ such that $x^n = e$ and is denoted by $ \abs{x} $. if there's no such $n$ then $\abs{x} = \infty$.
+	
+\end{define}
+
+\begin{example}
+	Order of $ \bar{2} $ is 5 in $ (\zg{5}, +) $ where $ e = 0 $, Order of $\bar{2}$ in $((\zg{5})^x, \cdot) $.
+\end{example}
+
