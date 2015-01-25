@@ -1,0 +1,87 @@
+\section{Basics}
+
+We shall use the notation $ \function{f}{A}{B} $, and the value of $f$ at $a$ is denoted $ f(a) $, that is we shall apply our functions on the left). map is a synonymous of function. The set $A$ is called the domain of $f$ and $B$ the codomain of $f$. The notation $ a \rightarrowtail b$ if $f$ is understood indicates that $ f(a) = b$ 
+The set 
+\[  f(A) = \set{b \in B | b = f(a), \qt{ for some } a \in A} \]
+is a subset of $ B $, called the \textbf{range } or \textbf{image} if f. Fir each subset $C$ of $B$ the set:
+\[ f^{-1} (C) = \set{a \in A | f(a) \in C} \]
+consisting of the elements of $A$ mapping into $C$ under $f$ the \textbf{preimage} or \textbf{inverse } image of C under f. For each $b \in B $, the preimage of $ \set{b} $ under $f$ is called the \textbf{fiber} of $f$ over $b$. The fibers of $f$ generally contain many elements since there may be many elements of $A$ mapping to the element $b$.
+
+If $\function{f}{A}{B} $ and $\function{g}{B}{C} $, then the composite map $ \function{g \circ f}{A}{C} $ is defined by:
+\[ \lrp{g \circ f}(a) = g(f(a))\]
+
+Some important terminologies:
+Let $\function{f}{A}{B} $:
+\begin{itemize}
+	\item f is \textbf{injective} if whenever $ a_1 \neq a_2 $, then $ f(a_1) \neq f(a_2) $
+	\item $f$ is \textbf{surjective} if for all $b \in B$ there is some $a \in A$ such that $f(a) = b $
+	\item $f$ is \textbf{bijective} or it is a bijection if it is both injective and surjective. 
+	\item $f$ has a left inverse if there is a function $ \function{g}{B}{A} $ such that $ \function{ g \circ f}{A}{A} $ is the identity map.
+	\item $f$ has a right inverse if there is function $ \function{h}{A}{B} $ such that $ \function{f \circ h}{B}{B} $ is the identity map on $B$. 
+\end{itemize}
+\begin{prop}
+	Let $ \function{f}{A}{B} $.
+	\begin{itemize}
+		\item The map $f$ is injective if and only if $f$ has a left inverse.
+		\item The map $f$ is surjective if and only if $f$ has a right inverse.
+		\item The map $f$ is a bijection if and only if there exists $ \function{G}{B}{A} $ such that $f \circ g$ is the identity map on $B$ and $ g \circ f $ is the identity map on  $A$.
+		\item If $A$ and $B$ are finite sets with the same number of elements. then $\function{f}{A}{B}$ is bijective if and only if $f$ is injective if and only if $f$ is surjective.
+	\end{itemize}
+\end{prop}
+
+An important remark is that any function is surjective onto its range (by definition).
+
+\begin{lem}
+	The map $f$ is a bijection if and only if there exists $ \function{G}{B}{A} $ such that $f \circ g$ is the identity map on $B$ and $ g \circ f $ is the identity map on  $A$.
+\end{lem}
+\begin{proof}
+	Suppose $f$ is a bijection, i.e, f is both surjective and injective. That is, since it is surjective, there exist $ \function{g}{B}{A} $ such that
+	\[ f \circ g = 1_B \].
+	Since it is injective, there exist a $ \function{g'}{B}{A} $ such that
+	\[ g' \circ f = 1_A \]
+	Now let us observe that $g = g'$. Take note that for any $b \in B$.
+	\begin{align*}
+		g(b) &= 1_A(g(b)) = (g' \circ f)(g(b)) \\
+		&= ((g' \circ f)\circ g)(b) = (g'\circ(f \circ g))(b) \\
+		&= (g'\circ 1_B)(b) \\
+		&= g'(b)
+	\end{align*}
+\end{proof}
+\begin{lem}
+	If $A$ and $B$ are finite sets with the same number of elements. then $\function{f}{A}{B}$ is bijective if and only if $f$ is injective if and only if $f$ is surjective.
+\end{lem}
+\begin{proof}
+	Suppose that $f$ is an injective function, then $f(A) = |A|$, this is known as the \textbf{cardinality of Image of Injection} and is proven using induction, therefore the subset $f(A)$ of $B$ has the same number of elements of $B$ and so $f(A) = B$, so $f$ is surjective, and this implies is a bijection.
+\end{proof}
+
+A \textbf{permutation} of a set $A$ is simply a bijection from $A$ to itself.
+If $A \contained B$ and $ \function{f}{B}{C} $, we denote the \textbf{restriction} of $f$ to $A$ by $ \restric{f}{A} $
+\section{Properties of the Integers}
+\begin{itemize}
+	\item \textbf{Well Ordering of $ \ZZ $} If $A$ is any nonempty subset of $ \ZZ^+ $, there is some element $ m \in A$ such that $ m \leq a$, for all $a \in A $.
+	\item If $ a, b \in \ZZ $ with $ a \neq 0 $, we say a divides b if there is an element $ c \in \ZZ $ such that $ b = ac$. In this case we write	$ a \mid b$, otherwise we write $ x \nmid y $
+	\item If $a,b \in \ZZ - \set{0} $, there is a unique positive integer $d$, called the \textbf{greatest common divisor } of $a$ and $b$, satisfying:
+	\begin{itemize}
+		\item $ d \divs a$, and $ d \divs b$, and
+		\item If $ e \divs a$ and $ e \divs b$, then $ e \divs d$ 
+	\end{itemize} 
+	The notation for $d$ will be $ (a,b) $, if it happens that $ (a,b) = 1 $, we say that $a$ and $b$ are relatively prime.
+	\item If $a,b \in \ZZ - \set{0} $, there is a unique positive integer $l$, called the \textbf{least common multiple} of $a$ and $b$ satisfying:
+	\begin{itemize}
+		\item $ a \mid l$ and $ b \mid l$, and
+		\item if $ a \mid m $ and $b \mid m$, then $ l \divs m$ (so that $l$ is the least such multiple)
+	\end{itemize}
+	\item \textbf{The Division Algorithm}: if $a,b \in \ZZ $ and $ b \neq 0 $, then there exist unique $q,r \in \ZZ $ such that:
+	\[ a = qb + r \quad \qt{and} \quad 0 \leq r < \abs{b}\]
+	where $q$ is the quotient and $r$ is the remainder.
+	\item \textbf{The Euclidean Algorithm} It produces the greatest common divisor of two integers.
+	\item If $a,b \in \ZZ - \set{0} $, then there exist $x,y  \in \ZZ $ such that:
+	\[ (a,b) = ax + by \]
+	\item An element $p$ of $ \ZZ^+ $ is called a prime if $ p > 1$ and the only positive divisors of $p$ are $1$ and $p$.
+	\item The \textbf{Fundamental Theorem of Arithmetic} If $n \in \ZZ$, $ n > 1 $, then $n$ can be factored uniquely into the product of primes.
+	\item The Euler $\phi-\qt{function}$ is defined as: for $n \in \ZZ $ let $ \phi(n) $ be the number of positive integers $ a \leq n$ with $a$ relatively prime to $n$, i.e., $(a,n) =1$. For prime $p$, $ \phi(p) = p-1$, and more generally, for all $a \geq 1$ we have the formula:
+	\[ \phi(p^a) = p^a - p^{a -1} = p^{a-1}(p-1)\]
+	The function $ \phi $ is multiplicative in the sense that:
+	\[ \phi(ab) = \phi(a)\phi(b) \quad \qt{ if } \quad (a,b) = 1\]	
+\end{itemize} 
+\input{Exercises0.2}

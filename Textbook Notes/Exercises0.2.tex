@@ -1,0 +1,35 @@
+PUT LINE HERE!
+\section{Exercises}
+\textbf{3.} Prove that if $n$ is composite, then there are integers $a$ and $b$ such that $n$ divides $ab$ but $n$ does not divide either $a$ or $b$.
+\textbf{Solution}
+Since $n$ is composite, then $ n = ab$ with $a < n $ and $b < n$, in both cases, because $n$ cannot divide a positive number smaller than itself, so that $ n \divs n$ = $ n \divs ab$.
+
+\textbf{6.} Prove the Well Ordering Property of $ \ZZ $ by induction and prove the minimal element is unique.
+\begin{lem}
+	Every nonempty subset $S \neq \varnothing \contained \ZZ^+ $ has a minimum. 
+\end{lem}
+\begin{proof}
+	Let us define the set:
+	\[ T = \set{n \in \ZZ^+ \cup \set{0} | n \leq s \qt{ for all } s \in S} \]
+	Since $S \neq \varnothing $, we have that  $ T \neq \ZZ^+$, this is given by the fact that if $ s' \in S $, then $ s' + 1 \not\in T$.
+	Observe that at most $ 0 \in T$ to be done!
+\end{proof}
+
+\textbf{7.} Prove that if $p$ is a prime, then $ \sqrt{p} $ is not a rational number
+\begin{proof}
+	Suppose $ \sqrt{p} $ is a rational number, in other words:
+	\[ \sqrt{p} = \frac{a}{b} \quad \qt{with} \quad (a,b) = 1\]
+	or equivalently:
+	\[ b^2p = a^2 \]
+	so we can see that $ p \divs a \cdot a $, and we can conclude that $ p \divs a$, i.e., $ a = kp$ for some integer $p$.
+	returning to our previous expression, we have that:
+	\[ b^2p = k^2p^2 \]
+	so that:
+	\[ b^2 = k^2p \]
+	from which we conclude that $ p \divs b$, but this is a contradiction since $ (a,b) = 1$. Therefore, our assumption that $\sqrt{p} $ is a rational number must be wrong.
+\end{proof}
+
+\textbf{8.} Find a formula for the largest power of $p$ which divides $n!$
+\url{https://www.proofwiki.org/wiki/Factorial_Divisible_by_Prime_Power}
+
+\textbf{11.} To be asked also.
