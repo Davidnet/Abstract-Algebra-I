@@ -1,0 +1,62 @@
+Recall that in the last class we saw that $ G \circlearrowright A $ which takes $ g \in G$ to $ \sigma g $ a permutation for $a \in A$ $\sigma_g(a) = g \cdot a$. observe that we define:
+\begin{define}
+	\[ \operatorname{Kernel}(\phi) = \set{g\in G | \sigma_g = \operatorname{id}_(A) } \]
+	\[ = \set{g \in G | g \cdot a = a  \qt{for all } a \in A } \]
+	is a subgroup.
+\end{define}
+
+\begin{example}
+	Observe $ G \action G$ any groups acts on itself.
+\end{example}
+\begin{example}
+	$V$ a vector space over $F$, $ F - \set{0} = F^x \action V $ by scalar multiplication
+\end{example}
+\begin{example}
+	$ D_{2n} \action [n] = \set{1, \ldots n} $ so that $ D_{2n} \rightarrow S_n$
+\end{example}
+So observe that for $n=3$ we have that $ D_6 \rightarrow S_3 $, we observe that this is an isomorphism (it just need to satisfy injectivity since it has the same elements).
+
+\section[2.1]{Subgroups} Exercises to be done: 3,9,12,15,17
+\begin{define}
+	Let $G$ be a nonempty group. A subset $H$ of $G$ is a subgroup (denoted $H \leq G$), if $H$ is closed under multiplications and inverses, more formally: $x,y \in H, x^{-1} \in H, \forall x,y \in H$
+\end{define}
+
+\begin{example}
+	$ 2 \ZZ \leq \ZZ \leq \QQ \leq \RR \leq \CC \leq ... $ with addition, and observe that $ (\QQ^x, \cdot) \not\leq (\RR, +) $ since zero is not there
+\end{example}
+\begin{prop}
+	$H \subseteq G$, then $ H \leq G$ if and only if :
+	\begin{enumerate}
+		\item $H \neq \varnothing $
+		\item $ \forall x,y \in H \quad xy^{-1} \in H $
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	By condition 1, $ x \in H $, so, by (2) $ e = x x^{-1} \in H$. Use (2), let $ x = e$, $ \forall y ( y \in H \implies y^{-1} \in H) $
+\end{proof}
+
+\textbf{Exercise 6} $G$ abelian torsion subgroup, $ \operatorname{tor}(G) = \set{g \in G| \abs{g} < \infty} $  Observe it is not empty, we find that $ \operatorname{tor}(G) $ is not empty. and we prove that in general, $ \abs{g} = \abs{g^{-1}} $. 
+\begin{align*}
+g^n = e &\iff g^{-n}  = e \\
+& (g^{-1})^n = e
+\end{align*}
+
+
+\textbf{Example} $ \operatorname{GL}_2 ( \RR ) $, the $ \operatorname{Tor}\operatorname{Gl}_2 (\RR) $ is not a subgroup.
+
+\section*{centralizers and normalizers}
+\begin{define}
+	Let $ A \subseteq_\qt{ subset }  G$. The centralizer of $A$ in $G$ is $ C_{G}(A) = \set{g \in G | gag^{-1} = a \quad \forall a \in A } $
+	\[ gag^{-1} = a \iff ga=ag \]
+	this is the set of all elements that commute with all elements of $A$ 
+\end{define}
+\begin{example}
+	$A = \set{e} \implies C_{G}(A) =G $, another \textbf{example }  can be $ r \not\in C_D(\set{s}) \qt{but  }\quad s \in C_{D_{2n}} (\set{s}).$
+\end{example}
+Show that $ C_{G} (A) $ is a subgroup.
+\begin{proof}
+	\[ g \in C_G (A) \overset{?}{\rightarrow} g^{-1} \in C_G(A) \] 
+	ang we can observe that $ gag^{-1} = a \implies a = g^{-1}ag $
+\end{proof}
+Notation if $ A = \set{a} \implies $ we write $C_g(a)$
+\textbf{Examples} $C_{Q_8}(i) = \set{\pm 1, \pm i} $

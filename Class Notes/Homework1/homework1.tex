@@ -1,0 +1,268 @@
+\documentclass[notitlepage]{report}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\author{David Cardozo}
+\title{Homework 1}
+\newtheorem{define}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+
+%Customized Commands
+\newcommand{\lrp}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}[1]{\frac{\mathbb{Z}}{#1 \mathbb{Z}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\qt}[1]{\textrm{#1}}
+\newcommand{\function}[3]{#1 : #2 \rightarrow #3}
+\newcommand{\contained}{\subseteq}
+\newcommand{\restric}[2]{ #1\restriction_{#2}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+
+\begin{document}
+\maketitle
+\textbf{1.} 
+\textbf{(a)}
+Can you write a surjective homomorphism $\ZN{24} \rightarrow S_3$?
+
+\textbf{Solution}
+\begin{mdframed}[]
+	For this problem we assume $\lrp{\ZN{24}, +}$ and $ \lrp{S_3, \circ}$, so suppose that there exist a function that have the following properties:
+	\[ f(\bar{a} + \bar{b}) = f(\bar{a}) \circ f(\bar{b})  \] 	
+	where $\bar{a} $ is any set of representatives in $\ZN{24}$ and $ \bar{b} \neq \bar{a}$ is also other set of representatives in $ \ZN{24} $ and $f$ is surjective and $f(\bar{a}) \in S_3$. Let us observe that any function, by the property described above, should hold the following:
+	\[ f(\bar{a} + \bar{b}) = f(\bar{a} + \bar{a}) \]
+	but observe that:
+	\[ f(\bar{a}) \ circ f(\bar{b}) \neq f(\bar{b}) \circ f(\bar{a}) \]
+	and this in general is not true in $s_3$ since this group is not abelian, so we conclude that our assumption must be false, respectively that there exist a surjective homomorphism between these two structures. $\blacksquare $
+\end{mdframed}
+\textbf{1.} 
+\textbf{(b)}
+How many homomorphism can you write from $S_3$ to $S_4$? At least show one or prove that there are none.
+\textbf{Solution}
+\begin{mdframed}[]
+	There are $ 25 = 1 + 4 \times 3! $, the reason is that, we have one homomorphism mapping everything to the identity, and then we have $ 4 $ options to fix a number in the cycle and in the same way of thought there are $3!$ options to choose any of the permutations of $s_3$ and $s_4$  so that the mapping respect the concatenation property.
+\end{mdframed}
+\textbf{1.} 
+\textbf{(c)} Without doing calculation, explain why there are no elements of order $24$ in $S_4$.
+\begin{mdframed}[]
+	As shown in the book, and in class, For any permutation on $S_n$ the maximum order of any of the elements in $s_n$ is $n$, so for this particular case we have $n = 4 $. The proof is done on the fact that the order depends in the least common multiple of the lengths of the cycles written in disjoint form, so the possible ways to write this are $e,(ab),(ab)(cd),(abc),(abcd)$ $a,b,c,d$ are all different numbers from $1 $ to $4$, thus the orders of these elements are $1,2,2$ and $4$ so that $4$ is the maximum order of $s_4$
+\end{mdframed}
+\textbf{1.} 
+\textbf{(d.)} What are the possible orders of elements of $ S_4 $ ?
+\begin{mdframed}[]
+	$1,2,3,4$ see previous discussion.
+\end{mdframed}
+\textbf{e} Show an element of every possible order.
+\begin{mdframed}[]
+	\begin{align*}
+	(1)(2)(3)(4) \quad &\qt{ Order } 1 \\
+	(12)(3)(4) 	  \quad &\qt{ Order } 2 \\
+	(123)(4)  \quad    &\qt{ Order } 3 \\
+	(1234) \quad &\qt{ Order } 4
+	\end{align*}
+\end{mdframed}
+\textbf{2.} Let $F$ be a field. The Heisenberg group is $H(F) = \set{\begin{bmatrix}
+1 & a  & b \\
+0 & 1 & c \\
+0 & 0 & 1
+\end{bmatrix} | a,b,c \in F}$
+
+\textbf{2.} 
+\textbf{(a) \& (c)} Show this is a nonabelian group. And deduce the order of the group.
+\begin{mdframed}[]
+	Let $a,b,c,d,e,f \in F$ and let's take: 
+	\[ A = \begin{bmatrix}
+	1 & a & b \\
+	0 & 1 & c \\
+	0 & 0 & 1
+	\end{bmatrix} \]
+	and:
+	\[ B = \begin{bmatrix}
+		1 & d & e \\
+		0 & 1 & f \\
+		0 & 0 & 1
+	\end{bmatrix} \]
+	and the multiplication of these two matrices is:
+	\[ AB = \begin{bmatrix}
+	1 & d+a & e + af + b \\
+	0 & 1 & c + f \\
+	0 & 0 & 1
+	\end{bmatrix} \]
+	and:
+	 \[ BA= \begin{bmatrix}
+	 1 & a+d & b+dc +e \\
+	 0 & 1 & c+f \\
+	 0 & 0 & 1
+	 \end{bmatrix} \]
+	 and we observe clearly that, in general, the multiplication of these two matrices depends in the order, this also shows that the elements of $H$ are closed under matrix multiplication.
+	 
+	 Also, observe that since the determinant of any element in $H$ is one, then there exist a inverse matrix, \emph{i.e} it has a matrix inverse, more explicitly:
+	 \[ 
+	 \begin{pmatrix}
+	    1&a&b  \\ 
+	    0&1&c \\    
+	    0&0&1
+	 \end{pmatrix}^{-1} =
+	 \begin{pmatrix}
+	 1 & -a & ac-b \\
+	 0 & 1 & -c \\
+	 0 & 0 & 1
+	 \end{pmatrix} \]
+	 
+	 Now for association, let us observe that
+	 \begin{align*}
+	  \begin{pmatrix}
+		 1&a&b  \\ 
+		 0&1&c\\    
+		 0&0&1
+	  \end{pmatrix} \cdot \lrp{
+	   \begin{pmatrix}
+	   1&d&e  \\ 
+	   0&1&f \\    
+	   0&0&1
+	   \end{pmatrix} \cdot
+	    \begin{pmatrix}
+	    1&g&h  \\ 
+	    0&1&i \\    
+	    0&0&1
+	    \end{pmatrix}} &= 
+	\begin{pmatrix}
+	 1&a&b  \\ 
+	 0&1&c\\    
+	 0&0&1
+	\end{pmatrix} \cdot
+	\begin{pmatrix}
+	1&d+g&h+di+e  \\ 
+	0&1&f+i\\    
+	0&0&1
+	\end{pmatrix} \\
+	&= 
+	\begin{pmatrix}
+	1&a+d+g&h+di+e+af+ai+b  \\ 
+	0&1&f+i+c\\    
+	0&0&1
+	\end{pmatrix} \\
+	&= 
+	\begin{pmatrix}
+	1&a+d&e+af+b  \\ 
+	0&1&f+c\\    
+	0&0&1
+	\end{pmatrix} \cdot
+	\begin{pmatrix}
+	1&g&h  \\ 
+	0&1&i\\    
+	0&0&1
+	\end{pmatrix} \\
+	&= \lrp{ \begin{pmatrix}
+	 1&a&b  \\ 
+	 0&1&c\\    
+	 0&0&1
+	 \end{pmatrix} \cdot 
+	 	\begin{pmatrix}
+	 	1&d&e  \\ 
+	 	0&1&f \\    
+	 	0&0&1
+	 	\end{pmatrix} } \cdot
+	 	\begin{pmatrix}
+	 	1&g&h  \\ 
+	 	0&1&i \\    
+	 	0&0&1
+	 	\end{pmatrix} 
+	 \end{align*}
+	 
+So that we observe the associative law holds with the matrix multiplication, and we conclude two things: The Heisenberg group is a group, and that the order of the group depends on the field we are working on, that is, we have shown above that $ \abs{H(F)} = \abs{F}^3 $.
+\end{mdframed}
+
+\textbf{2.}
+\textbf{(c)} Find the order of each element when $ F = \mathbb{F}_2 $
+\begin{mdframed}[]
+	Let us denote the matrices as:
+	\[ 	I = \begin{pmatrix}
+	1&1&1  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix} \quad A_2 = 
+	\begin{pmatrix}
+	1&1&0  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix} \]
+	\[ A_3 = 
+	\begin{pmatrix}
+	1&0&0  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix} \quad A_4 =
+	\begin{pmatrix}
+	1&0&0  \\ 
+	0&1&1 \\    
+	0&0&1
+	\end{pmatrix} \]
+	\[ A_5 = 
+	\begin{pmatrix}
+	1&1&1  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix} \quad A_6 =
+	\begin{pmatrix}
+	1&1&0  \\ 
+	0&1&1 \\    
+	0&0&1
+	\end{pmatrix}\]
+	\[ A_7 = 
+	\begin{pmatrix}
+	1&0&1  \\ 
+	0&1&1 \\    
+	0&0&1
+	\end{pmatrix} \quad A_8 = 
+	\begin{pmatrix}
+	1&1&1  \\ 
+	0&1&1 \\    
+	0&0&1
+	\end{pmatrix} \]
+	
+	To avoid this tedious calculation, we use Wolfram Alpha (we know how to multiply matrices but is boring), and we find that:
+	$A_2^2 = A_3^2 = A_4^2 = A_5^2 = A_7^2 = I $, i.e, these are elements of order two.
+	Now for $A_6$ we have:
+	\[ A_6^2 = 
+	\begin{pmatrix}
+	1&0&1  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix} \quad A_6^4 = 	\begin{pmatrix}
+	1&0&0  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix}\]
+	and we conclude $A_6$ is of order 4.
+	And similarly for $A_8$ we have:
+	\[ A_8^2 =
+	\begin{pmatrix}
+	1&1&0  \\ 
+	0&1&1 \\    
+	0&0&1
+	\end{pmatrix} \quad A_8^4 = \begin{pmatrix}
+	1&0&0  \\ 
+	0&1&0 \\    
+	0&0&1
+	\end{pmatrix} \]
+	and we conclude $A_8$ is of order 4.
+\end{mdframed}
+
+
+\end{document}
+
