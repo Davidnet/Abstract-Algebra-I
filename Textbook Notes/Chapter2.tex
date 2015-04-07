@@ -1,0 +1,139 @@
+\section{Subgroups}
+
+\begin{defn}
+	Let $ G $ be a group. The subset $ H $ of $ G  $ is a \emph{subgroup} of $ G $ if $ H $ is nonempty and $ H $ is closed under products and inverses (i.e, $ x,y \in H \implies x\inv \in H $ and $ xy \in H $). If $ H $ is a subgroup of $ G $ we shall write $ H \leq G $
+\end{defn}
+
+\begin{prop}
+	(\textbf{The Subgroup Criterion}) A subset $ H $ of a group $ G $ is a subgroup if and only if:
+	\begin{itemize}
+		\item $ H \neq \varnothing $, and
+		\item for all $ x,y \in H \implies x \cdot y\inv \in H $
+	\end{itemize}
+	Furthermore, if $ H $ is finite, then it suffices to check that $ H $ is nonempty and closed under multiplication.
+\end{prop}
+\begin{proof}
+	Suppose $ H $ is a subgroup of $ G $, then is certain that (1) and (2)  holds, since it contains the identity of $ G $ and the inverse of each of its elements and because $ H $ is closed under multiplication.
+	It remains to show conversely that if $ H $ satisfies both (1)  and (2), then $ H \subgroup G $. Let $ x $ be any element in $ H $. Let $ y =x $ and apply property (2) to deduce that $ 1 = xx\inv \in H $ so $ H $ contains the identity of $ G $. Then, again by (2), since $ H $ contains $ 1 $ and $ x $, $ H $ contains the element $ 1x\inv  $, that is$ x\inv \in H $ and $ H  $ is closed under taking inverses. Finally, if $ x $ and $ y $ are any two elements of $ H $, then $ H $ contains $ x $ and $ y \inv $, so by (2), $ H $ also contains $ x(y\inv)\inv $ that is $ xy $ Hence $ H $ is also closed under multiplication, which proves $ H $ is a subgroup of $ G $.
+\end{proof}
+
+\subsection{Centralizers and Normalizers, Stabilizers and Kernels}
+We introduce some important families of subgroups of an arbitrary group $ G $.
+
+\begin{defn}
+	Let $ A $ be any nonempty subset of $ G $. Define \[  C_G(A)  = \set{g \in G | gag\inv = a \textrm{ for all } a \in A}  \]This subset of $ G $ is called the \emph{centralizer} of $ A $ in $ G $. Since $ gag\inv = a $ if and only if $ ga = ag $, $ C_G(A) $ is the set of elements of $ G $ which commute with every element of $ A $
+\end{defn}
+
+\begin{prop}
+	The centralizer $ C_G(A) $ is a subgroup.
+\end{prop}
+\begin{proof}
+	First we show that is nonempty. Let us observe that $ 1 \in C_G(A) $ since $ 1a1\inv = a $, so that $ C_G(A) \neq \varnothing $. Now let $ x, y \in \centralizer{G}{A} $, so that $ xax\inv =a $ and $ yay\inv = a $, observe that since $ yay\inv = a $, multiplying wisely in both left and right we have $ y\inv a y = a $  so that $ y\inv \in \centralizer{G}{A} $ so now let us consider:
+	\begin{align*}
+	(xy)a(xy)\inv = (xy)a(y\inv x\inv) \\
+	&= x(yay\inv)x\inv \\
+	&= x a x\inv \\
+	&= a
+	\end{align*}
+	so that $ \centralizer{G}{A} $ is closed under product and taking inverses so that $ \centralizer{G}{A} \subgroup G $. 
+\end{proof}
+In the special case that $ A = \set{a} $ we write $ \centralizer{G}{a} $, observe that $ a^n \in \centralizer{G}{A} $ for all $ n \in \ZZ $
+
+\begin{defn}
+	Define $ Z(G) = \set{g \in G| gx = xg \textrm{ for all } x \in G} $, the set of elements commuting with all the elements of $ G $. This subset of $ G $ is called the \textit{center} of $ G $.
+\end{defn}
+\begin{rem}
+	The center of a group is a subgroup
+\end{rem}
+\begin{proof}
+	The center of a group is an special case of the centralizer since $ Z(G) = \centralizer{G}{G} $
+\end{proof}
+\begin{defn}
+	Define $ gAg\inv = \set{gag\inv | a \in A} $. Define the \textbf{normalizer} of $ A $ in $ G $ to be the set $ \normalizer{G}{A} = \set{g \in G | gAg\inv = A} $.
+\end{defn}
+Let us remark that if $ g \in \centralizer{G}{A} $ then $ gag^-1 =a \in  A $ so that $ \centralizer{G}{A} \subgroup \normalizer{G}{A} $
+
+\subsection{Stabilizers and Kernels of Group Actions}
+We can indicate that the structure of $ G $ is reflected by the sets on which it acts, as follows: if $ G $ is a group acting on a set $ S $ and $ s $ is ome fixed element of $ S $, the \emph{stabilizer} of $ s $ in G is the set:
+\[ G_s = \set{g \in G | g \cdot s = s} \]
+
+\begin{exc}
+	Let $ G $ be a group acting on a set $ A $ and fix some $ a \in A $. Show that the following sets are subgroups of $ G $:
+	\begin{enumerate}
+		\item the kernel of the action,
+		\item $ \set{g \in G | ga = a} $ this subgroup is called the \textit{stabilizer} of $ a $ in $ G $.
+	\end{enumerate}
+\end{exc}
+\begin{sol}
+	\begin{itemize}
+		\item So let $ G \acts A $, consider $ \ker(G \acts A) $, we want to see that it is in fact a subgroup. First observe that is nonempty since $ 1 \cdot a = a  $ for all $ a \in A $ so that $ 1 $ belongs to the kernel, now let $ x,y $ belong to the kernel, observe that since $ y  $ is in the kernel $ y \cdot a = a $ for all $ a \in A $. Now:
+		\begin{align*}
+		e \cdot s = s \\
+		(g\inv \star g) s = s \\
+		g\inv \cdot (g\cdot s) = s \\
+		g\inv \cdot (s) = s
+		\end{align*}
+		and we observe that $ g\inv $ belongs to the kernel, so that the set is closed under inverses, for multiplication let us observe:
+		\begin{align*}
+		(x \star y) \cdot s = x \cdot ( y \cdot s) \\
+		&= x \cdot (s) 
+		&= s
+		\end{align*}
+		so that is closed under multiplication.
+		\item As above, the same procedure holds but only for a member of $ s $ which does not changes the argument above.
+	\end{itemize}
+	
+\end{sol}
+
+Finally, we observe that the fact that centralizers, normalizers and kernels are subgroups is a special case of the facts that stabilizers and kernels of actions are subgroups. Let $ S = \mathcal{P}(G) $, the collection of all subsets of $ G $, and let $ G $ act on $ \powerset{G} $ by \emph{conjugation} $ g \in G $ and $ B \in \powerset{G}, B \subset G $:
+\[ g: B \rightarrow gBg\inv \]
+under this action, we see that the normalizer ($ \normalizer{G}{A} $) is precisely the stabilizer of $ A $ in $ G $, $ G_s = \normalizer{G}{A} $, where $ s = A \in \powerset{G} $, so that $ \normalizer{G}{A} $ is a subgroup of $ G $.
+\begin{exc}
+	Let $ G $ be any group and let $ A = G $. Show that the maps defined by $ g \cdot a = gag\inv $ for all $ a,g \in G $ satisfy the axioms of a (left) group action.
+\end{exc}
+\begin{sol}
+	So let $ G \acts A $, and $ A = G $ via: $ g \cdot a = gag\inv $, let us observe that $ 1 \cdot a = 1a1\inv = a $ so that the first condition holds. Secondly, observe 
+	\begin{align*}
+	 x \cdot ( y\cdot a) = x \cdot (yay\inv)  \\
+	 &= x(yay\inv)x\inv
+	 &= (xy)a(xy)\inv
+	\end{align*}
+	so that the axioms for an actions are satisfied.
+\end{sol}
+Next let the group $ \normalizer{G}{A} $ act on the set $ S = A $ by conjugation, that is for all $ g \in \normalizer{G}{A} $ and $ a \in A $
+\[ g: a \rightarrowtail gag\inv \]
+Note that this does map $ A $ to $ A $ by the definition $ \normalizer{G}{A} $ and so gives an action on $ A $. The Kernel of this action is precisely $ \centralizer{G}{A} $ hence $ \centralizer{G}{A} \subgroup \normalizer{G}{A} $. Finally $ Z(G) $ is the kernel of $ G $ action on $ S = G $ by conjugation, so $ Z(G) \leq G $
+
+\subsection{Cyclic Groups and Cyclic Subgroups}
+
+\begin{defn}
+	A group $ H $ is \emph{cyclic} if $ H $ can be generated by a single element, i.e., there is some element $ x \in H $ such that $ H = \set{x^n | n \in \ZZ} $ (where as usual the operation is multiplication).
+\end{defn}
+In additive notation $ H $ is cyclic if $ H = \set{nx | n \in Z} $. In both cases will write $ H = \generatedcyclic{x} $, we observe that $ H = \generatedcyclic{x} = \generatedcyclic{x\inv} $ so that it may have more than one generator. \textbf{by the law of exponents cyclic groups are abelian}.
+
+\begin{prop}
+	If $ H = \generatedcyclic{x} $, then $ \abs{H} = \abs{x} $(where if one side of this equality is infinite, so is the other). More specifically:
+	\begin{itemize}
+		\item if $ \order{H} = n < \infty $, then $ x^n = 1$, and $ 1,x,x^2, \ldots,x^{n-1} $ are all the distinct elements of $ H $, and:
+		\item if $ \order{H} = \infty $, then $ x^n \neq 1 $ for all $ n \neq 0 $ and $ x^{a} \neq x^b $ for all $ a \neq b $ in $ \ZZ $.
+	\end{itemize}
+\end{prop}
+\begin{proof}
+	Let $ \order{x} = n$ and consider the finite case. The elements $ 1,x,x^2, \ldots, x^{n-1} $ are distinct because if $ x^a = x^b  $, with say $ 0 \leq a \leq b < n $, then $ x^{b-a} = x^0 =1 $. Contrary to the hypothesis that $ n $ was the smallest positive power of x that equals 1. This $ H $ has at least $ n $ elements and it remains to show that these are all of them. Let $ x^t $ is any power of $ x $, we use the Division Algorithm to write $ t = nq + k  $ where $  0 \leq k < n $, so:
+	\[ x^t = x^{nq + k}  = x^{nq}x^k = 1x^k = x^k \in \set{1,x,\ldots,x^{n-1}}\]
+	
+	For the infinite case, observe then that no positive power of $ x $ is the identity. If $ x^a = x^b $ for some $ a $ and $ b $ then $ x^{a-b} = 1 $, which contradicts our hypothesis. So we conclude that distinct power of $ x $ are distinct elements of $ H $ so $ \order{H} = \infty $
+\end{proof}
+Observe that the calculations of distinct powers of a generator of a cyclic group of order n are carried out via arithmetic $ \ZN{n} $, the following reasoning proves that the groups are isomorphic.
+
+\begin{prop}
+	Let $ G $ be an arbitrary group, $ x \in G $ and let $ m,n \in \ZZ $. If $ x^n = 1 $ and $ x^m = 1 $, then $ x^d = 1 $, where $ d = (m,n) $. In particular, if $ x^m = 1 $ for some $ m \in \ZZ $, then $ \order{x} $ divides $ m $
+\end{prop}
+\begin{proof}
+	Consider $ d = (m,n) $ by the Euclidean Algorithm there exists integers $ r,s $ for which $ d = rm + sn $, and $ d $ is the greates common divisor of $ m $ and $ n $. Thus:
+	\[ x^d = x^{mr + ns} = x^{mr}x^{ns} = 1 \]
+	This proves the first assertion.
+	For the second assertion if $ x^m = 1 $, and let $ n = \order{x} $. If $ m = 0 $, certainly $ n \divs m $, so assume $ m \neq 0 $. Since some nonzero power of $ x $ is the identity, $ n \leq \infty $. Let $ d = (m,n) $ so by the same observation above:
+	\[ x^d = 1 \]
+	Since $ 0 < d \leq n $ and $ n $ is the smallest positive positive power of $ x $ which gives the identity, we must have $ d = n $, that is, $ n \divs m $ as asserted.
+\end{proof} 

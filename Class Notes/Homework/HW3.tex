@@ -1,0 +1,152 @@
+\documentclass[notitlepage]{article}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\author{David Cardozo}
+\title{ Abstract Algebra}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+
+\theoremstyle{definition}
+\newtheorem{define}{Definition}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exm}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\newtheorem{exc}{Exercise}
+\newtheorem*{sol}{Solution}
+
+
+
+
+%Customized Commands
+\newcommand{\lrp}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}[1]{\frac{\mathbb{Z}}{#1 \mathbb{Z}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\qt}[1]{\textrm{#1}}
+\newcommand{\function}[3]{#1 : #2 \rightarrow #3}
+\newcommand{\contained}{\subseteq}
+\newcommand{\restric}[2]{ #1\restriction_{#2}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\isomorphic}{\cong}
+\newcommand{\inv}{^{-1}}
+\newcommand{\subgroup}{\leq}
+\newcommand{\centralizer}[2]{C_{#1}\lrp{#2}}
+\newcommand{\normalizer}[2]{N_{#1}\lrp{#2}}
+\newcommand{\acts}{\circlearrowright}
+\newcommand{\powerset}[1]{\mathcal{P}\lrp{#1}}
+\newcommand{\generatedcyclic}[1]{\left\langle #1 \right\rangle}
+\newcommand{\order}[1]{\left| #1 \right|}
+
+\begin{document}
+\maketitle
+
+\begin{exc}
+	Let $ H(F) $ be the Heisenberg group over the field $ F $. Find and explicit formula for the commutator $ [X,Y] $, where $ X,Y \in H(F) $.
+\end{exc}
+
+\begin{sol}
+	Let us remember that in the first homework we found that the inverse for a member of the Heisenberg group over $ F $ was:
+	Observe that since the determinant of any element in $H$ is one, then there exist a inverse matrix, \emph{i.e} it has a matrix inverse, more explicitly:
+	\[ 
+	\begin{pmatrix}
+	1&a&b  \\ 
+	0&1&c \\    
+	0&0&1
+	\end{pmatrix}^{-1} =
+	\begin{pmatrix}
+	1 & -a & ac-b \\
+	0 & 1 & -c \\
+	0 & 0 & 1
+	\end{pmatrix} \]
+	so that let $ x,y \in H(F) $ so that:
+	\[ X = \begin{pmatrix}
+	1&a&b  \\ 
+	0&1&c \\    
+	0&0&1
+	\end{pmatrix}  \]
+	and 
+	\[ Y = \begin{pmatrix}
+	1&d&e  \\ 
+	0&1&f \\    
+	0&0&1
+	\end{pmatrix}  \]
+	by definition of the commutator $ [X,Y] = X\inv Y \inv XY $
+	so that:
+	\[ [X,Y]  = \begin{pmatrix}
+	1&-a&ac - b  \\ 
+	0&1&-c \\    
+	0&0&1
+	\end{pmatrix}
+	 \begin{pmatrix}
+		1&-d&df - e  \\ 
+		0&1&-f \\    
+		0&0&1
+	\end{pmatrix} XY \]
+	and putting this matrix into Mathematica (although I did remeber how to compute matrices but the laziness work), we found that:
+	\[ [X,Y] = \begin{pmatrix}
+	1&0&af-cd \\
+	0&1&0 \\
+	0&0&1
+	\end{pmatrix} \]
+	which is a closed formula for the commutator 
+\end{sol}
+
+\begin{exc}
+	Show that this operation on $  \check{G} $ makes this set an abelian group. [Hint: show that the trivial homomorphism is the identity and that $ \chi^{-1}(g) = \chi(g)^{-1}. $]
+\end{exc}
+
+\begin{sol}
+	Consider $ A $ as an abelian group, and $ G $ a group, now consider the set of all homomorphism $ G \rightarrow A $ , so that we want to see and define a product on this set. We will do ut via pointwise multiplication, for identity observe that the trivial homomorphism is on the set described above, so that $ (1 \bar{A})(x) = (\bar{A} 1 )(x) = \bar{a}(x) $ and we have our identity, Now consider an arbitrary homomorphism, say $ \phi $
+\end{sol}
+
+\begin{exc}
+	Write definitions of the graph homomorphism and isomorphism $ \gamma_1 \rightarrow \gamma_2 $, and automorphism of a graph.
+\end{exc}
+\begin{sol}
+	\begin{defn}
+		A \textit{graph } consists of a set of \textit{vertices } $ V(G) $ and a set of \textit{edges} $ E(G) $ represented by unordered pair of vertices. We define vertices $ x $ and $ y $ to be a adjacent of $ (x,y) \in E(G) $
+	\end{defn}
+	\begin{define}
+		We define that a graph is \textit{complete} if every vertex is connected to every other vertex 
+	\end{define}
+	We define the notion of isomorphism as:
+	\begin{defn}
+		An \textit{isomorphism} between two graphs $ G $ and $ H $ as a bijective map $ f: G \rightarrow H $ with the property:
+		\[ (x,y) \in E(G) \iff (f(x),f(y)) \in E(H) \]
+	\end{defn}
+	we weakening the above definition for make sense of a graph homomorphism 
+	\begin{defn}
+		A \textit{homomorphism} from a graph $ G $ to a graph $ H $ is defined as a mapping $ h: G \rightarrow H $ such that
+		\[  (x,y) \in E(G) \implies (f(x),f(y)) \in E(H) \]
+	\end{defn}
+	In the end we want that preserves edges. Which leads to:
+	\begin{defn}
+		A graph G with 2 independent vertex set is a bipartite graph. 
+	\end{defn}
+	Finally we want to discuss the transformations of a graph onto itself which leads to the concept of:
+	\begin{defn}
+		An isomorphism from a graph $ G $ to itself is called an \textbf{automorphism}
+	\end{defn}
+\end{sol}
+
+\end{document}
